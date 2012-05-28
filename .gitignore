@@ -1,0 +1,40 @@
+# IMPORTANT! Never push this files to a public repo!
+
+/**/*/mongoid.yml
+
+# bundler state
+/.bundle
+/**/.bundle
+/**/vendor/bundle/
+
+/**/log/*.log
+/**/tmp
+
+# various artifacts
+**.war
+**.rvmrc
+*.rbc
+*.sassc
+.rspec
+.redcar/
+.sass-cache
+.yardoc/
+/**/public/cache
+/**/public/stylesheets/compiled
+/**/public/system
+/**/spec/tmp/*
+/**/cache
+/**/capybara*
+/**/capybara-*.html
+/gems
+
+# Mac finder artifacts
+.DS_Store
+
+# Textmate project files
+/*.tmproj
+
+# vim artifacts
+**.swp
+
+**/public/assets/*

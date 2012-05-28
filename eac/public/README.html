@@ -1,0 +1,58 @@
+<h1 id="engineapplicationcomposer">Engine Application Composer</h1>
+
+<p><strong>EAC</strong> is a set of Rails-engines and a &#8216;Dummy-application&#8217; named <code>aec</code>.</p>
+
+<h2 id="buildyourownrails-app">Build your own Rails-app</h2>
+
+<p>To build your own Rails-app based on AEC&#8217;s engines fork <code>aec</code> from Github
+and edit <code>aec/Gemfile</code>. Edit the section where engines are loaded and remark
+all engines you will not use.</p>
+
+<pre>
+[....]
+# EACUSR ENGINE
+gem "eacusr", path: File.expand_path('../../eacusr', __FILE__)
+[....]
+</pre>
+
+<p>And in <code>eac/config/routes.rb</code> edit the corresponding lines
+to mount the used engines.</p>
+
+<pre>
+Rails.application.routes.draw do
+  mount Eacusr::Engine => "/eacusr"
+end
+</pre>
+
+<h1 id="eacdummy-applicaton"><code>eac</code> dummy-applicaton</h1>
+
+<p>If you forked this project from Github you will see the
+following directory-structure.</p>
+
+<p><strong>/eac</strong></p>
+
+<blockquote>
+<p>The dummy-applicaton to test the various engines</p>
+</blockquote>
+
+<p><strong>/eacusr</strong></p>
+
+<blockquote>
+<p>The User-engine implements /eacusr and supports a
+ user-model using omniAuth with several oauth-providers
+ preconfigured and omniauth-identity for local users</p>
+</blockquote>
+
+<p><em>More engines will follow</em></p>
+
+<h1 id="runtheserver">Run the server</h1>
+
+<pre>
+cd eac
+rails server
+</pre>
+
+<h1 id="runthespecs">Run the specs</h1>
+
+<p>Just run <code>rake</code> in the project&#8217;s root-directory to run all engine&#8217;s specs in a batch or change to one of the engine&#8217;s directories and exec
+<code>rspec spec/rspec_helper.rb spec/*/*_spec.rb</code></p>

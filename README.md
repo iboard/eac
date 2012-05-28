@@ -1,14 +1,14 @@
 Engine Application Composer
 ===========================
 
-**EAC** is a set of Rails-engines and a 'Dummy-application' named `aec`.
+**EAC** is a set of Rails-engines and a 'Dummy-application' named `eac`.
 
 
 Build your own Rails-app
 ------------------------
 
-To build your own Rails-app based on AEC's engines fork `aec` from Github
-and edit `aec/Gemfile`. Edit the section where engines are loaded and remark
+To build your own Rails-app based on EAC's engines fork `eac` from Github
+and edit `eac/Gemfile`. Edit the section where engines are loaded and remark
 all engines you will not use.
 
 <pre>

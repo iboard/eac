@@ -1,0 +1,28 @@
+<h1>EACTHEME Theme-Engine</h1>
+<strong>Current theme: <%= session[:theme] || 'not set' %></strong>
+
+<p>
+  At the moment this engine provides 'default' only. EACTHME is implemented as
+  much as the dummy-app 'eac' needs a hook to use the theme-engine which will
+  be implemented later.
+</p>
+
+<h2>Semistatic assets used</h2>
+
+<dt>Stylesheet</dt>
+<dd>
+  <code>
+    <%= raw( stylesheet_link_tag( Eactheme::Engine.main_css ).gsub(/</,'&lt;').gsub(/>/,'&gt;') ) %>
+</code></dd>
+
+<dt>Template</dt>
+<dd><code><%= Eactheme::Engine.main_template  %></code></dd>
+
+<h3>Test different themes</h3>
+<ul>
+  <li><%= link_to "Default", switch_themes_path(:default) %></li>
+  <li><%= link_to "None", switch_themes_path(:none) %></li>
+</ul>
+
+
+<p><%= link_to 'Back to root-application', main_app.root_path %></p>

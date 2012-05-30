@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EAC USER ENGINE</title>
+  <title>EAC THEME ENGINE</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag Eactheme::Engine.main_css %>
   <%= javascript_include_tag "application" %>  
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<header>EAC USER ENGINE</header>
+<header>EAC THEME ENGINE</header>
 
 <section id='main'>
   <%= render Eactheme::Engine.main_template, y: yield %>

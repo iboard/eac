@@ -45,6 +45,49 @@ following directory-structure.
 _More engines will follow_
 
 
+Create your own Engine
+======================
+
+> *In near future, there should be a generator to do this steps in one command.*
+
+In project's root-path do
+
+<pre>
+  rails plugin new eacYOUR_ENGINE --mountable --skip-testunit --skipactiverecord -T --dummy-path=spec/dummy
+</pre>
+
+Then add the following line to `eac/eac/Gemfile`
+
+<pre>
+  gem "eacYOUR_ENGINE", path: File.expand_path('../../eacYOUR_ENGINE', __FILE__)
+</pre>
+
+Add the following block at the end of `eac/eacYOUR_ENGINE/Rakefile`
+
+<pre>
+  task :default => :rspec 
+
+  task :rspec do
+    system "rspec spec/spec_helper.rb spec/*/*_spec.rb"
+  end
+</pre>
+
+Copy an existing spec_helper.rb to `eac/eac/YOUR_ENGINE/spec/spec_helper.rb`
+You can copy from `eac/eacusr/spec/spec_helper` and change the file near bottom to
+
+<pre>
+  config.include EacYOUR_ENGINE::Engine.routes.url_helpers
+</pre>
+
+Run `rails g rspec:install` in `eac/eacYOUR_ENGINE` and 
+
+* create eac/eacYOUR_ENGINE/spec/integration
+* copy eac/eacusr/spec/integration/eacusr_engine_spec.rb to eac/eacYOUR_ENGINE/spec/integration/eacYOUR_ENGINE_spec.rb and edit the file to fit the engine's name.
+
+
+Start developing your engine in `eac/eacYOUR_ENGINE`. While developing you can run `rake` in 
+the project's root-path to test the dummy-app using your engine.
+
 Run the server
 ==============
 
@@ -52,6 +95,8 @@ Run the server
 cd eac
 rails server
 </pre>
+
+and visit http://0.0.0.0:3000
 
 Run the specs
 =============

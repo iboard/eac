@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dummy</title>
+  <title>EAC Dummy and Test-application</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag Eactheme::Engine.main_css %>
+  <%= javascript_include_tag "application" %>  
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<header>EAC Dummy and Test-application</header>
+
+<section id='main'>
+  <%= render Eactheme::Engine.main_template, y: yield %>
+</section>
 
 </body>
 </html>

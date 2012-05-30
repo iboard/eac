@@ -14,8 +14,9 @@ end
 
 gem 'jquery-rails'
 
-# EACUSR ENGINE
+# EAC ENGINES
 gem "eacusr", path: File.expand_path('../../eacusr', __FILE__)
+gem "eactheme", path: File.expand_path('../../eactheme', __FILE__)
 
 group :test do
   gem "rspec-rails"

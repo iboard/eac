@@ -1,0 +1,9 @@
+<h1>Available Engines</h1>
+
+<ul>
+  <% @engines.each do |engine| %>
+    <li>
+      <%= link_to engine.upcase, "/#{engine}" %>
+    </li>
+  <% end %>
+</ul>
